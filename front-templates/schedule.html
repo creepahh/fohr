@@ -43,7 +43,7 @@
                     <a href="./complaint.html" class="block rounded-md px-4 py-2 hover:bg-gray-100">Complaints</a>
                 </li>
                 <li class="list-none">
-                    <a href="{% url 'about' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
+                    <a href="./schedule.html" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
                 </li>
 
                 <li>
@@ -62,19 +62,31 @@
                 <div id="containercontain" class="">
                     <div class="m-5 flex overflow-x-auto rounded-full bg-white text-gray-500">
                         <div id="titles" class="space-between flex w-full justify-between px-4 py-2">
+
+
                             <span class="p-2.5 font-sans font-bold">Date</span>
                             <span class="p-2.5 font-sans font-bold">Pick up time</span>
                             <span class="p-2.5 font-sans font-bold">Location</span>
                         </div>
                     </div>
 
+                     {% for schedule in schedules %}
                     <div class="m-5 flex overflow-x-auto rounded-full bg-white text-gray-500">
+
                         <div id="titles" class="space-between flex w-full justify-between px-1 py-1">
-                            <span class="p-2 font-sans text-gray-600">2080-09-06</span>
-                            <span class="p-2 font-sans">01:00AM</span>
-                            <span class="p-2 font-sans">Chabahil</span>
+
+
+
+                            <span class="p-2 font-sans text-gray-600">{{schedule.date}}</span>
+                            <span class="p-2 font-sans">{{schedule.time}}</span>
+                            <span class="p-2 font-sans">{{schedule.location}}</span>
+
+
+
                         </div>
+
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -39,3 +39,11 @@ class Complain(Base):
             data.save()
 
         return render(request, "complaint.html", self.views)
+
+
+class ScheduleView(Base):
+
+    def get(self, request):
+        self.views['schedules'] = Schedule.objects.all
+
+        return render(request, "schedule.html", self.views)
