@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <title>About TrashTrack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="box" class="flex">
+        <!-- Navigation Bar -->
+        <nav class="flex-1/3 bg-white relative shadowd-md z-10 h-full p-5  text-black">
+            <div class="flex justify-between">
+                <span class="m-1 text-2xl font-mono font-bold">TrashTrack</span>
+            </div>
+
+            <div id="address-box" class="relative m-2">
+                <input type="text" id="floating_filled"
+                    class="block px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                    placeholder=" " />
+                <label for="floating_filled"
+                    class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Your
+                    location</label>
+            </div>
+
+            <ul class="mt-8 font-sans font-light antialiased">
+                <li class="list-none">
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                </li>
+                <li class="list-none">
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">
+                        <i class="fas fa-calendar-alt mr-2"></i> Schedule
+                    </a>
+                </li>
+
+                <li class="list-none">
+                    <a href="./complaint.html" class="block rounded-md px-4 py-2 hover:bg-gray-100">
+                        <i class="fas fa-exclamation-circle mr-2"></i> Complaint
+                    </a>
+                </li>
+                <li class="list-none">
+                    <a href="{% url 'about' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">
+                        <i class="fas fa-info-circle mr-2"></i> About
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- About Us Section -->
+        <div class="flex-3/4 h-[92vh] bg-gray-100 rounded-lg m-5">
+          <div id='about-contain' class="p-5">
+            <h1 class="text-4xl font-bold mb-4">About TrashTrack</h1>
+            <p class="text-gray-800 leading-7">
+                Welcome to TrashTrack, your dedicated platform for real-time garbage truck tracking. Our mission
+                is to streamline waste management by providing you with live updates on the location and schedule
+                of garbage trucks in your area.
+            </p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">How TrashTrack Works</h2>
+            <p class="text-gray-800 leading-7">
+                TrashTrack utilizes cutting-edge technology to monitor the movement of garbage trucks as they navigate
+                through neighborhoods. The process is simple yet powerful: you enter your location, and TrashTrack
+                keeps you informed about when the garbage truck is scheduled to arrive at your doorstep.
+            </p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">Key Features</h2>
+            <ul class="list-disc text-gray-800 pl-8">
+                <li>Real-time tracking of garbage trucks</li>
+                <li>Customizable notifications based on your location</li>
+                <li>Efficient waste management for cleaner communities</li>
+                <li>Reliable and timely updates for a hassle-free experience</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">Get Started with TrashTrack</h2>
+            <p class="text-gray-800 leading-7">
+                Join TrashTrack today and take control of your waste management. Sign up for personalized notifications,
+                stay informed about garbage truck schedules, and contribute to a cleaner, greener environment.
+            </p>
+          </div>
+        </div>
+    </div>
+</body>
+
+</html>
