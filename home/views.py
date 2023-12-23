@@ -1,6 +1,12 @@
 from django.shortcuts import render
+from django.views.generic import View
 
 
-def home_page(request):
-    return render(request, "./index.html")
+class Base(View):
+    views = {}
+
+
+class HomePage(Base):
+    def get(self, request):
+        return render(request, "./index.html", self.views)
 
