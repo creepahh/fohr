@@ -7,12 +7,12 @@ class Base(View):
     views = {}
 
 
-class HomePage(Base):
+class HomePageView(Base):
     def get(self, request):
         return render(request, "home.html", self.views)
 
 
-class Complain(Base):
+class ComplainView(Base):
 
     def get(self, request):
         return render(request, "complaint.html", self.views)
