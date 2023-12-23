@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +9,16 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 overflow-hidden">
   <div class="flex">
 
     <!-- Left Section -->
     <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-gray-100">
       <div class="container mx-auto my-8">
         <h1 class="mb-8 text-left font-mono text-4xl font-bold">Welcome to</h1>
-        <h4 class="mb-8 text-left font-mono text-4xl font-bold">TrashTrack</h4>
+        <h4 class="mb-8 text-left font-mono text-6xl font-bold">TrashTrack</h4>
 
-        <img src="./truck_only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
+        <img src='{% static "/truck_only.svg" %}' alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
       </div>
     </div>
 
@@ -27,30 +28,16 @@
       <!-- <div class="flex-2/3 mx-auto mt-8 max-w-2xl rounded bg-white p-8 shadow-md"> -->
       <h2 class="mb-4 text-2xl font-semibold text-gray-800">Sign Up</h2>
 
-      <form method = "POST" action="{% url 'signup' %}">
+      <form method="POST" action="{% url 'signup' %}">
 
-          {% csrf_token %}
-            <div class="flex">
+        {% csrf_token %}
 
 
-          <!-- Username -->
-          <div class="mb-4 mx-2">
-            <label for="username" class="block text-gray-700">Username</label>
-            <input type="text" id="username" name="uname" placeholder="john_doe123"
-              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
-          </div>
-        </div>
 
-        <!-- Password -->
+        <!-- Username -->
         <div class="mb-4 mx-2">
-          <label for="password" class="block text-gray-700">Password</label>
-          <input type="password" id="password" name="password" placeholder="********"
-            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
-        </div>
-
-        <div class="mb-4 mx-2">
-          <label for="password" class="block text-gray-700">Confirm Password</label>
-          <input type="password" id="cpassword" name="cpassword" placeholder="********"
+          <label for="username" class="block text-gray-700">Username</label>
+          <input type="text" id="username" name="uname" placeholder="john_doe123"
             class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
 
@@ -62,20 +49,40 @@
             class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
 
+        <!-- Password -->
+        <div class="mb-4 mx-2">
+          <label for="password" class="block text-gray-700">Password</label>
+          <input type="password" id="password" name="password" placeholder="********"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        </div>
+
+
+        <div class="mb-4 mx-2">
+          <label for="password" class="block text-gray-700">Confirm Password</label>
+          <input type="password" id="cpassword" name="cpassword" placeholder="********"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        </div>
+
+
+
         <!-- Address with City Dropdown -->
 
+        <div class="flex flex-col">
+          <!-- Contact Number -->
 
-        <!-- Contact Number -->
+          <!-- Submit Button -->
+          <button type="submit"
+            class=" mt-2 focus:shadow-outline-blue rounded-md bg-black px-4 py-2 text-white hover:bg-gray-900 focus:outline-none">Sign
+            Up</button>
+        </div>
         <a href="/account/login/">
-        <span class="text-black font-italics">Already have an account!Login</span>
+          <span class="text-black m-2 text-center italic underline decoration-solid underline-offset-1">Already have an
+            account!
+            Login</span>
         </a>
-
-        <!-- Submit Button -->
-        <button type="submit"
-          class="focus:shadow-outline-blue rounded-md bg-black px-4 py-2 text-white hover:bg-gray-900 focus:outline-none">Sign
-          Up</button>
-      </form>
     </div>
+    </form>
+  </div>
   </div>
 
 

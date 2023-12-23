@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,34 +9,42 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
-    <div class="flex">
+<body class="bg-gray-100 overflow-hidden">
+    <div class="flex items-center justify-center">
 
         <!-- Left Section -->
         <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-gray-100">
             <div class="container mx-auto my-8">
                 <h1 class="mb-8 text-left font-mono text-4xl font-bold">Welcome to</h1>
-                <h4 class="mb-8 text-left font-mono text-4xl font-bold">TrashTrack</h4>
+                <h4 class="mb-8 text-left font-mono text-6xl font-bold">TrashTrack</h4>
 
-                <img src="./truck only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
+                <img src='{% static "/truck_only.svg" %}' alt="Truck" width="400" height="400"
+                    class="m-auto max-w-lg" />
             </div>
         </div>
 
         <!-- Right Section -->
-        <div id="signin" class="m-auto flex-1 items-center h-full overflow-hidden rounded-lg bg-gray-100 p-3">
 
-            <h2 class="text-2xl font-bold mb-4">Sign In</h2>
-            <form  method="POST">
+        <div id="signin" class="my-3 mr-7 flex-1 p-6 items-center h-full overflow-hidden rounded-lg bg-white">
+            <h2 class="text-3xl font-bold text-center mb-6">Sign In</h2>
+            <form method="POST" class="flex flex-col items-center mx-auto max-w-xs">
                 {% csrf_token %}
-                <div class="mb-4">
-                   <label>Username</label>
+                <div class="mb-6 w-full">
+                    <label for="username" class="block text-sm font-medium text-gray-600 mb-2">Username</label>
                     {{form.username}}
-                    <label>Password</label>
+                </div>
+                <div class="mb-6 w-full">
+                    <label for="password" class="block text-sm font-medium text-gray-600 mb-2">Password</label>
                     {{form.password}}
                 </div>
-                <button type="submit" class="bg-black text-white px-4 py-2 rounded-md">Sign In</button>
+                <button type="submit"
+                    class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition duration-300">Sign
+                    In</button>
             </form>
         </div>
+
+
+
 
     </div>
 </body>

@@ -9,7 +9,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <script src="https://kit.fontawesome.com/23ec1d83f3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
 
@@ -35,26 +35,42 @@
 
             <ul class="mt-8 font-sans font-light antialiased">
                 <li class="list-none">
-                    <a href="{% url 'home' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Home</a>
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-home mr-2"></i>Home</a>
                 </li>
-                <li class="list-none" id="schedule">
-                    <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Schedule</a>
+                <li class="list-none">
+                    <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-calendar-alt mr-2"></i>Schedule</a>
                 </li>
 
                 <li class="list-none">
-                    <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Complaints</a>
+                    <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
                 </li>
                 <li class="list-none">
-                    <a href="./schedule.html" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
+                    <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-info-circle mr-2"></i>About</a>
                 </li>
-
-                <li>
-                    <a href="./signin.html"> </a>
-                </li>
-                <a href="./signup.html">
-                    <i class="fa-solid fa-user-plus"></i>
-                </a>
             </ul>
+
+
+            <div class="m-3 p-2">
+                {% if user.is_authenticated %}
+                <a href=""><i class="icon-user"><label>{{user.username}}</label></i></a>
+                {% else %}
+                <a href="/account/login/">
+                    <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
+                            font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
+                            id=" icon" class="fa-solid fa-right-to-bracket"></i></button>
+                </a>
+                {% endif %}
+
+                <a href="{% url 'signup' %}">
+                    <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
+                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
+                            class="fa-solid fa-user-plus"></i></button>
+                </a>
+            </div>
         </nav>
 
         <div id="schedules" class="m-5 h-[92vh] flex-1 overflow-hidden rounded-lg bg-gray-100">
@@ -73,9 +89,9 @@
                     </div>
 
                     {% for schedule in schedules %}
-                    <div class="m-5 flex overflow-x-auto rounded-full bg-white text-gray-500">
+                    <div class="m-5 flex w-full overflow-x-auto rounded-full bg-white text-gray-500">
                         <div onclick="openMapPopup()" class="titles" data-location="{{schedule.location}}"
-                            class="space-between flex w-full justify-between px-1 py-1">
+                            class="space-between flex justify-between w-full px-1 py-1">
                             <span class="p-2 font-sans text-gray-600">{{schedule.date}}</span>
                             <span class="p-2 font-sans">{{schedule.time}}</span>
                             <span class="p-2 font-sans">{{schedule.location}}</span>
