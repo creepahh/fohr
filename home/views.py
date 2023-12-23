@@ -8,5 +8,5 @@ class Base(View):
 
 class HomePage(Base):
     def get(self, request):
-        return render(request, "./index.html", self.views)
+        return render(request, "home.html", self.views)
 
