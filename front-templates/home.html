@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen@1.5.1/dist/leaflet.fullscreen.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="box" class="flex">
+        <nav class="flex-1/3 bg-white relative shadowd-md z-10 h-full p-3 text-black">
+            <div class="flex justfy-between">
+                <span class=" m-1 text-2l font-mono font-bold">FohorUthau</span>
+            </div>
+
+            <div id="address-box" class="relative m-2">
+                <input type="text" id="floating_filled"
+                    class="block px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                    placeholder=" " />
+                <label for="floating_filled"
+                    class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Your
+                    location</label>
+            </div>
+
+            <ul class="mt-8 font-sans font-light antialiased">
+                <li class="list-none">
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">Home</a>
+                </li>
+                <li class="list-none">
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">Schedule</a>
+                </li>
+
+                <li class="list-none">
+                    <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100">Complaints</a>
+                </li>
+                <li class="list-none">
+                    <a href="{% url 'about' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
+                </li>
+            </ul>
+
+
+        </nav>
+
+        <div id="map_area" class="h-[92vh] overflow-hidden flex-1 bg-gray-100 rounded-lg m-5">
+            <div id="mapContainer" class=" h-screen z-0 p-5">
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var map = L.map("mapContainer").setView([27.7911, 85.3706], 12);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
+</script>
+
+</html>
