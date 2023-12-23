@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +93,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-var marker = L.marker(coordinateArray[0]).addTo(map);
+<!--var marker = L.marker(coordinateArray[0]).addTo(map);-->
+// Create a custom truck icon
+var truckIcon = L.icon({
+  iconUrl: '{% static "/truck.png" %}',
+  iconSize: [50, 50], // Adjust the size as needed
+  iconAnchor: [16, 16], // Adjust the anchor point as needed
+});
+var marker = L.marker(coordinateArray[0], { icon: truckIcon }).addTo(map);
+
 
 var index = 1;
 
