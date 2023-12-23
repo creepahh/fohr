@@ -9,116 +9,133 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen@1.5.1/dist/leaflet.fullscreen.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <title>Document</title>
+    <title>FohorUthau</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     <div id="box" class="flex">
-        <nav class="flex-1/3 bg-white relative shadowd-md z-10 h-full p-3 text-black">
-            <div class="flex justfy-between">
-                <span class=" m-1 text-2l font-mono font-bold">FohorUthau</span>
+
+        <nav class="flex-1/3 shadowd-md relative z-10 h-full bg-white p-3 text-black">
+            <div class="justfy-between flex">
+                <a href="{% url 'home' %}" class="m-1 text-2l font-mono font-bold">TrashTrack</a>
             </div>
 
             <div id="address-box" class="relative m-2">
                 <input type="text" id="floating_filled"
-                    class="block px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                    class="peer block w-full border-0 border-b-2 border-gray-400 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-400 focus:outline-none focus:ring-0"
                     placeholder=" " />
                 <label for="floating_filled"
-                    class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Your
+                    class="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75">Your
                     location</label>
             </div>
 
             <ul class="mt-8 font-sans font-light antialiased">
                 <li class="list-none">
-                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">Home</a>
+                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="list-none">
-                    <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Schedule</a>
+                    <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-calendar-alt mr-2"></i>Schedule</a>
                 </li>
 
                 <li class="list-none">
-                    <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Complaints</a>
+                    <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
                 </li>
                 <li class="list-none">
-                    <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
+                    <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                            class="fas fa-info-circle mr-2"></i>About</a>
                 </li>
             </ul>
-
-
+            <div class="m-3 p-2">
+                <a href="">
+                    <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
+                    font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i id=" icon"
+                            class="fa-solid fa-right-to-bracket"></i></button>
+                </a>
+                <a href="">
+                    <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
+                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
+                            class="fa-solid fa-user-plus"></i></button>
+                </a>
+            </div>
         </nav>
 
+
         <div id="map" class="h-[92vh] overflow-hidden flex-1 bg-gray-100 rounded-lg m-5">
-    <div id="mapContainer" class="h-screen z-0 p-5"></div>
-</div>
+            <div id="mapContainer" class="h-screen z-0 p-5"></div>
+        </div>
 
     </div>
-<script>
+    <script>
 
 
-var coordinates = {
-  "coordinates": [
-    [85.31732829466324, 27.709944374495038],
-    [85.3173734783893, 27.710407250753548],
-    [85.31746384583948, 27.710778693243682],
-    [85.31756712292753, 27.711270138286892],
-    [85.31760585183565, 27.71168729338882],
-    [85.3176574903797, 27.712173019921494],
-    [85.31777367710185, 27.712790175219453],
-    [85.31783177046395, 27.713144466497823],
-    [85.31732829464136, 27.713361612252385],
-    [85.31633425260827, 27.713504471101288],
-    [85.31568877081332, 27.71361875798769],
-    [85.31544994254898, 27.71369304439935],
-    [85.31534021064283, 27.713430184560337],
-    [85.31527566246274, 27.713013036123982],
-    [85.31515302092248, 27.712601600487915],
-    [85.31510783719648, 27.712041588377076],
-    [85.31499810529033, 27.711595862397047],
-    [85.31490128302028, 27.711104418821392],
-    [85.31480446075204, 27.71052725551617],
-    [85.31475927702593, 27.710035807126076],
-    [85.31507556310646, 27.70995008915628],
-    [85.31570813526741, 27.709887229269768],
-    [85.31585659607958, 27.709887229269768]
-  ]
-}
+        var coordinates = {
+            "coordinates": [
+                [85.31732829466324, 27.709944374495038],
+                [85.3173734783893, 27.710407250753548],
+                [85.31746384583948, 27.710778693243682],
+                [85.31756712292753, 27.711270138286892],
+                [85.31760585183565, 27.71168729338882],
+                [85.3176574903797, 27.712173019921494],
+                [85.31777367710185, 27.712790175219453],
+                [85.31783177046395, 27.713144466497823],
+                [85.31732829464136, 27.713361612252385],
+                [85.31633425260827, 27.713504471101288],
+                [85.31568877081332, 27.71361875798769],
+                [85.31544994254898, 27.71369304439935],
+                [85.31534021064283, 27.713430184560337],
+                [85.31527566246274, 27.713013036123982],
+                [85.31515302092248, 27.712601600487915],
+                [85.31510783719648, 27.712041588377076],
+                [85.31499810529033, 27.711595862397047],
+                [85.31490128302028, 27.711104418821392],
+                [85.31480446075204, 27.71052725551617],
+                [85.31475927702593, 27.710035807126076],
+                [85.31507556310646, 27.70995008915628],
+                [85.31570813526741, 27.709887229269768],
+                [85.31585659607958, 27.709887229269768]
+            ]
+        }
 
-var coordinateArray = coordinates.coordinates;
+        var coordinateArray = coordinates.coordinates;
 
-var map = L.map('map').setView([27.709944374495038, 85.31732829466324], 16);
+        var map = L.map('map').setView([27.709944374495038, 85.31732829466324], 16);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-<!--var marker = L.marker(coordinateArray[0]).addTo(map);-->
-// Create a custom truck icon
-var truckIcon = L.icon({
-  iconUrl: '{% static "/truck.png" %}',
-  iconSize: [50, 50], // Adjust the size as needed
-  iconAnchor: [16, 16], // Adjust the anchor point as needed
-});
-var marker = L.marker(coordinateArray[0], { icon: truckIcon }).addTo(map);
+        <!--var marker = L.marker(coordinateArray[0]).addTo(map);-->
+        // Create a custom truck icon
+        var truckIcon = L.icon({
+            iconUrl: '{% static "/truck.png" %}',
+            iconSize: [50, 50], // Adjust the size as needed
+            iconAnchor: [16, 16], // Adjust the anchor point as needed
+        });
+        var marker = L.marker(coordinateArray[0], { icon: truckIcon }).addTo(map);
 
 
-var index = 1;
+        var index = 1;
 
-function updateMarker() {
-  if (index < coordinateArray.length) {
-    var coordinate = coordinateArray[index];
-    marker.setLatLng([coordinate[1], coordinate[0]]);
-    index++;
-  } else {
-    clearInterval(intervalId); // Stop updating when all coordinates are covered
-  }
-}
+        function updateMarker() {
+            if (index < coordinateArray.length) {
+                var coordinate = coordinateArray[index];
+                marker.setLatLng([coordinate[1], coordinate[0]]);
+                index++;
+            } else {
+                clearInterval(intervalId); // Stop updating when all coordinates are covered
+            }
+        }
 
-// Update marker every 1000 milliseconds (1 second)
-var intervalId = setInterval(updateMarker, 1000);
+        // Update marker every 1000 milliseconds (1 second)
+        var intervalId = setInterval(updateMarker, 1000);
 
-</script>
+    </script>
 </body>
 
 

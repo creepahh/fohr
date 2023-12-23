@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrashTrack</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex">
+
+    <!-- Left Section -->
+    <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-gray-100">
+      <div class="container mx-auto my-8">
+        <h1 class="mb-8 text-left font-mono text-4xl font-bold">Welcome to</h1>
+        <h4 class="mb-8 text-left font-mono text-4xl font-bold">TrashTrack</h4>
+
+        <img src="./truck only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-white">
+      <!-- <div id="signin" class="m-auto flex-1 items-center h-full overflow-hidden rounded-lg bg-gray-100 p-3"> -->
+      <!-- <div class="flex-2/3 mx-auto mt-8 max-w-2xl rounded bg-white p-8 shadow-md"> -->
+      <h2 class="mb-4 text-2xl font-semibold text-gray-800">Sign Up</h2>
+      <form>
+        <!-- Full Name -->
+
+        <div class="flex">
+
+
+          <div class="mb-4 mx-2">
+            <label for="fullName" class="block text-gray-700">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="John Doe"
+              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          </div>
+
+          <!-- Username -->
+          <div class="mb-4 mx-2">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input type="text" id="username" name="username" placeholder="john_doe123"
+              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4 mx-2">
+          <label for="password" class="block text-gray-700">Password</label>
+          <input type="password" id="password" name="password" placeholder="********"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        </div>
+        <!-- Email Address -->
+        <div class="mb-4 mx-2">
+          <label for="email" class="block text-gray-700">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        </div>
+
+        <!-- Address with City Dropdown -->
+        <div class="mb-4 mx-2">
+          <label for="address" class="block text-gray-700">Address</label>
+          <input type="text" id="address" name="address" placeholder="Woda Number 6"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          <!-- City Dropdown -->
+          <select id="city" name="city"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required>
+            <option value="kathmandu">Kathmandu</option>
+            <option value="pokhara">Pokhara</option>
+            <option value="biratnagar">Biratnagar</option>
+            <option value="bharatpur">Bharatpur</option>
+            <option value="butwal">Butwal</option>
+            <option value="dharan">Dharan</option>
+          </select>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="mb-4 mx-2">
+          <label for="contactNumber" class="block text-gray-700">Contact Number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" placeholder="9876543210"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" pattern="[0-9]{10}"
+            required />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+          class="focus:shadow-outline-blue rounded-md bg-black px-4 py-2 text-white hover:bg-gray-900 focus:outline-none">Sign
+          Up</button>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
+</body>
+
+</html>

@@ -1,113 +1,110 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  </head>
-  <body class="bg-gray-800">
-    <div class="max-w-2xl mx-auto p-8 bg-white mt-8 rounded shadow-md">
-      <h2 class="text-2xl font-semibold mb-4">Complaint Form</h2>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css
+" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css
+" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <div id="box" class="flex">
+    <!-- Navigation Bar -->
+    <nav class="flex-1/3 shadowd-md relative z-10 h-full bg-white p-5 text-black top-0 sticky">
+      <div class="flex justify-between"><span class="m-1 font-mono text-2xl font-bold">TrashTrack</span></div>
+      <div id="address-box" class="relative m-2"><input type="text" id="floating_filled"
+          class="peer block w-full border-0 border-b-2 border-gray-400 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-400 focus:outline-none focus:ring-0"
+          placeholder=" " /> <label for="floating_filled"
+          class="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75">Your
+          location</label></div>
+      <ul class="mt-8 font-sans font-light antialiased">
+        <li class="list-none">
+          <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-home mr-2"></i>Home</a>
+        </li>
+        <li class="list-none">
+          <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+              class="fas fa-calendar-alt mr-2"></i>Schedule</a>
+        </li>
+
+        <li class="list-none">
+          <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+              class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
+        </li>
+        <li class="list-none">
+          <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+              class="fas fa-info-circle mr-2"></i>About</a>
+        </li>
+      </ul>
+      <div class="m-3 p-2">
+        <a href="">
+          <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
+                font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i id=" icon"
+              class="fa-solid fa-right-to-bracket"></i></button>
+        </a>
+        <a href="">
+          <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
+                font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
+              class="fa-solid fa-user-plus"></i></button>
+        </a>
+      </div>
+    </nav>
+    <!-- Complaint Section -->
+
+    <div class="mt-8 mb-8 w-full max-w-4xl rounded bg-gray-100 p-8 shadow-sm h-full">
+      <h2 class="mb-4 text-2xl font-semibold text-gray-800">Complaint Form</h2>
       <form action="{% url 'complain' %}" method='POST'>
         {% csrf_token %}
-
         <!-- Name -->
-        <div class="mb-4">
-          <label for="name" class="block text-gray-600">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="fullname"
-            placeholder="John Doe"
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            required
-          />
+        <div class="mb-4"><label for="name" class="block text-gray-700">Name</label> <input type="text" id="name"
+            name="fullname" placeholder="John Doe"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
-
         <!-- Address -->
-        <div class="mb-4">
-          <label for="address" class="block text-gray-600">Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            placeholder="Woda Number 6, Pokhara"
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            required
-          />
+        <div class="mb-4"><label for="address" class="block text-gray-700">Address</label> <input type="text"
+            id="address" name="address" placeholder="Ward Number 6, Pokhara"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
-
         <!-- Email Address -->
-        <div class="mb-4">
-          <label for="email" class="block text-gray-600">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="john@example.com"
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            required
-          />
+        <div class="mb-4"><label for="email" class="block text-gray-700">Email Address</label> <input type="email"
+            id="email" name="email" placeholder="john@example.com"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
-
         <!-- Contact Number -->
-        <div class="mb-4">
-          <label for="contactNumber" class="block text-gray-600">Contact Number</label>
-          <input
-            type="tel"
-            id="contactNumber"
-            name="phone_number"
-            placeholder="9876543210"
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            pattern="[0-9]{10}"
-            required
-          />
-        </div>
-
+        <div class="mb-4"><label for="contactNumber" class="block text-gray-700">Contact Number</label> <input
+            type="tel" id="contactNumber" name="phone_number" placeholder="9876543210"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" pattern="[0-9]{10}"
+            required /></div>
         <!-- Locality Area (Dropdown) -->
         <div class="mb-4">
-          <label for="locality" class="block text-gray-600">Locality Area</label>
-          <select
-            id="locality"
-            name="location"
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            required
-          >
-            
+          <label for="locality" class="block text-gray-700">Locality Area</label>
+          <select id="locality" name="location"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required>
             <option value="municipality1">Kageshwori Manahara</option>
             <option value="municipality2">Tokha</option>
             <option value="municipality2">Tarakeshwar</option>
             <option value="municipality2">Budanilkantha</option>
             <option value="municipality2">Chandragiri</option>
             <option value="municipality2">Nagarjuna</option>
-            
           </select>
         </div>
-
         <!-- Complaint Message -->
-        <div class="mb-4">
-          <label for="complaintMessage" class="block text-gray-600">Complaint Message</label>
-          <textarea
-            id="complaintMessage"
-            name="message"
-            rows="4"
-            placeholder="Enter your complaint here..."
-            class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
-            required
-          ></textarea>
+        <div class="mb-4"><label for="complaintMessage" class="block text-gray-700">Complaint Message</label>
+          <textarea id="complaintMessage" name="message" rows="4" placeholder="Enter your complaint here..."
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required></textarea>
         </div>
-
         <!-- Submit Button -->
-        <button
-          type="submit"
-          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-        >
-          Send to TrashTrack
-        </button>
+        <button type="submit"
+          class="focus:shadow-outline-blue rounded-md bg-black px-4 py-2 text-white hover:bg-gray-500 focus:outline-none">Send
+          to TrashTrack</button>
       </form>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
