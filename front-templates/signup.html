@@ -2,75 +2,71 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Tailwind CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrashTrack</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-lime-200">
+<body class="bg-gray-100">
   <div class="flex">
-    <nav class="flex-1/3 shadowd-md relative z-10 h-full bg-white p-3 text-black">
-      <div class="flex justify-between">
-        <span class="text-2l m-1 font-mono font-bold">TrashTrack</span>
+
+    <!-- Left Section -->
+    <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-gray-100">
+      <div class="container mx-auto my-8">
+        <h1 class="mb-8 text-left font-mono text-4xl font-bold">Welcome to</h1>
+        <h4 class="mb-8 text-left font-mono text-4xl font-bold">TrashTrack</h4>
+
+        <img src="./truck only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
       </div>
+    </div>
 
-      <div id="address-box" class="relative m-2">
-        <input type="text" id="floating_filled" class="peer block w-full border-0 border-b-2 border-gray-400 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-400 focus:outline-none focus:ring-0"
-          placeholder=" " />
-        <label for="floating_filled" class="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75">Your location</label>
-      </div>
-
-      <ul class="mt-8 font-sans font-light antialiased">
-        <li class="list-none">
-          <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-home mr-2"></i>Home</a>
-        </li>
-        <li class="list-none">
-          <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-calendar-alt mr-2"></i>Schedule</a>
-        </li>
-
-        <li class="list-none">
-          <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
-        </li>
-        <li class="list-none">
-          <a href="{% url 'about' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-info-circle mr-2"></i>About</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="flex-2/3 mx-auto mt-8 max-w-2xl rounded bg-white p-8 shadow-md">
+    <!-- Right Section -->
+    <div id="welcome" class="m-5 flex-1 h-full p-6 overflow-hidden rounded-lg bg-white">
+      <!-- <div id="signin" class="m-auto flex-1 items-center h-full overflow-hidden rounded-lg bg-gray-100 p-3"> -->
+      <!-- <div class="flex-2/3 mx-auto mt-8 max-w-2xl rounded bg-white p-8 shadow-md"> -->
       <h2 class="mb-4 text-2xl font-semibold text-gray-800">Sign Up</h2>
       <form>
         <!-- Full Name -->
-        <div class="mb-4">
-          <label for="fullName" class="block text-gray-700">Full Name</label>
-          <input type="text" id="fullName" name="fullName" placeholder="John Doe" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
-        </div>
 
-        <!-- Username -->
-        <div class="mb-4">
-          <label for="username" class="block text-gray-700">Username</label>
-          <input type="text" id="username" name="username" placeholder="john_doe123" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        <div class="flex">
+
+
+          <div class="mb-4 mx-2">
+            <label for="fullName" class="block text-gray-700">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="John Doe"
+              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          </div>
+
+          <!-- Username -->
+          <div class="mb-4 mx-2">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input type="text" id="username" name="username" placeholder="john_doe123"
+              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          </div>
         </div>
 
         <!-- Password -->
-        <div class="mb-4">
+        <div class="mb-4 mx-2">
           <label for="password" class="block text-gray-700">Password</label>
-          <input type="password" id="password" name="password" placeholder="********" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          <input type="password" id="password" name="password" placeholder="********"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
         <!-- Email Address -->
-        <div class="mb-4">
+        <div class="mb-4 mx-2">
           <label for="email" class="block text-gray-700">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          <input type="email" id="email" name="email" placeholder="john@example.com"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
 
         <!-- Address with City Dropdown -->
-        <div class="mb-4">
+        <div class="mb-4 mx-2">
           <label for="address" class="block text-gray-700">Address</label>
-          <input type="text" id="address" name="address" placeholder="Woda Number 6" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+          <input type="text" id="address" name="address" placeholder="Woda Number 6"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
           <!-- City Dropdown -->
-          <select id="city" name="city" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required>
+          <select id="city" name="city"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required>
             <option value="kathmandu">Kathmandu</option>
             <option value="pokhara">Pokhara</option>
             <option value="biratnagar">Biratnagar</option>
@@ -81,15 +77,22 @@
         </div>
 
         <!-- Contact Number -->
-        <div class="mb-4">
+        <div class="mb-4 mx-2">
           <label for="contactNumber" class="block text-gray-700">Contact Number</label>
-          <input type="tel" id="contactNumber" name="contactNumber" placeholder="9876543210" class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" pattern="[0-9]{10}" required />
+          <input type="tel" id="contactNumber" name="contactNumber" placeholder="9876543210"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" pattern="[0-9]{10}"
+            required />
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="focus:shadow-outline-blue rounded-md bg-lime-500 px-4 py-2 text-white hover:bg-lime-600 focus:outline-none">Sign Up</button>
+        <button type="submit"
+          class="focus:shadow-outline-blue rounded-md bg-black px-4 py-2 text-white hover:bg-gray-900 focus:outline-none">Sign
+          Up</button>
       </form>
     </div>
+  </div>
+
+
   </div>
 </body>
 
