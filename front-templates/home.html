@@ -17,68 +17,34 @@
 
 <body>
     <div id="box" class="flex">
-<<<<<<< HEAD
-        <nav class="flex-1/3 bg-white relative shadowd-md z-10 h-full p-3 text-black">
-            <div class="flex justfy-between">
-                <a href="{% url 'home' %}" class="m-1 text-2l font-mono font-bold">FohorUthau</a>
 
-            </div>
-
-            <div id="address-box" class="relative m-2">
-                <input type="text" id="floating_filled"
-                    class="block px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-400 peer"
-                    placeholder=" " />
-                <label for="floating_filled"
-                    class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Your
-                    location</label>
-            </div>
-
-            <ul class="mt-8 font-sans font-light antialiased">
-                <li class="list-none">
-                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100">Home</a>
-                </li>
-                <li class="list-none">
-                    <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Schedule</a>
-                </li>
-
-                <li class="list-none">
-                    <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100">Complaints</a>
-                </li>
-                <li class="list-none">
-                    <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100">About</a>
-                </li>
-            </ul>
-
-
-        </nav>
-=======
       <nav class="flex-1/3 shadowd-md relative z-10 h-full bg-white p-3 text-black">
         <div class="justfy-between flex">
-          <span class="text-2l m-1 font-mono font-bold">TrashTrack</span>
+                <a href="{% url 'home' %}" class="m-1 text-2l font-mono font-bold">TrashTrack</a>
         </div>
-  
+
         <div id="address-box" class="relative m-2">
           <input type="text" id="floating_filled" class="peer block w-full border-0 border-b-2 border-gray-400 bg-gray-50 px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-400 focus:outline-none focus:ring-0" placeholder=" " />
           <label for="floating_filled" class="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75">Your location</label>
         </div>
-  
+
         <ul class="mt-8 font-sans font-light antialiased">
           <li class="list-none">
             <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-home mr-2"></i>Home</a>
           </li>
           <li class="list-none">
-            <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-calendar-alt mr-2"></i>Schedule</a>
+            <a href="{% url 'schedule' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-calendar-alt mr-2"></i>Schedule</a>
           </li>
-  
+
           <li class="list-none">
-            <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
+            <a href="{% url 'complain' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-exclamation-circle mr-2"></i>Complaints</a>
           </li>
           <li class="list-none">
-            <a href="{% url 'about' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-info-circle mr-2"></i>About</a>
+            <a href="#settings" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i class="fas fa-info-circle mr-2"></i>About</a>
           </li>
         </ul>
       </nav>
->>>>>>> 2c6ec28af3c25e5fee89cfd50a361533f9d8c495
+
 
         <div id="map" class="h-[92vh] overflow-hidden flex-1 bg-gray-100 rounded-lg m-5">
     <div id="mapContainer" class="h-screen z-0 p-5"></div>
