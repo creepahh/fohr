@@ -13,12 +13,13 @@ class Schedule(models.Model):
 
 
 class Feedback(models.Model):
-    topic = models.CharField(max_length=400)
     fullname = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, blank=True)
     email = models.EmailField()
     message = models.TextField()
+    location = models.CharField(max_length=200, blank=True)
+    phone_number = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.topic
-
+        return self.fullname
 

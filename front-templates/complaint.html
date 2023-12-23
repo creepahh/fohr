@@ -9,14 +9,17 @@
   <body class="bg-gray-800">
     <div class="max-w-2xl mx-auto p-8 bg-white mt-8 rounded shadow-md">
       <h2 class="text-2xl font-semibold mb-4">Complaint Form</h2>
-      <form>
+
+      <form action="{% url 'complain' %}" method='POST'>
+        {% csrf_token %}
+
         <!-- Name -->
         <div class="mb-4">
           <label for="name" class="block text-gray-600">Name</label>
           <input
             type="text"
             id="name"
-            name="name"
+            name="fullname"
             placeholder="John Doe"
             class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
@@ -55,7 +58,7 @@
           <input
             type="tel"
             id="contactNumber"
-            name="contactNumber"
+            name="phone_number"
             placeholder="9876543210"
             class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             pattern="[0-9]{10}"
@@ -68,7 +71,7 @@
           <label for="locality" class="block text-gray-600">Locality Area</label>
           <select
             id="locality"
-            name="locality"
+            name="location"
             class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           >
@@ -88,7 +91,7 @@
           <label for="complaintMessage" class="block text-gray-600">Complaint Message</label>
           <textarea
             id="complaintMessage"
-            name="complaintMessage"
+            name="message"
             rows="4"
             placeholder="Enter your complaint here..."
             class="w-full mt-2 p-2 border rounded-md focus:outline-none focus:border-blue-500"
