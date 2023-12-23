@@ -51,13 +51,20 @@
                             class="fas fa-info-circle mr-2"></i>About</a>
                 </li>
             </ul>
+
+
             <div class="m-3 p-2">
-                <a href="">
-                    <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
-                    font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i id=" icon"
-                            class="fa-solid fa-right-to-bracket"></i></button>
-                </a>
-                <a href="">
+                {% if user.is_authenticated %}
+                    <a href=""><i class="icon-user"><label>{{user.username}}</label></i></a>
+                    {% else %}
+                        <a href="/account/login/">
+                            <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
+                            font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i id=" icon"
+                                    class="fa-solid fa-right-to-bracket"></i></button>
+                        </a>
+                {% endif %}
+
+                <a href="{% url 'signup' %}">
                     <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
                     font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
                             class="fa-solid fa-user-plus"></i></button>

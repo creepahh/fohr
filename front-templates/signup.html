@@ -17,7 +17,7 @@
         <h1 class="mb-8 text-left font-mono text-4xl font-bold">Welcome to</h1>
         <h4 class="mb-8 text-left font-mono text-4xl font-bold">TrashTrack</h4>
 
-        <img src="./truck only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
+        <img src="./truck_only.svg" alt="Truck" width="400" height="400" class="m-auto max-w-lg" />
       </div>
     </div>
 
@@ -26,22 +26,17 @@
       <!-- <div id="signin" class="m-auto flex-1 items-center h-full overflow-hidden rounded-lg bg-gray-100 p-3"> -->
       <!-- <div class="flex-2/3 mx-auto mt-8 max-w-2xl rounded bg-white p-8 shadow-md"> -->
       <h2 class="mb-4 text-2xl font-semibold text-gray-800">Sign Up</h2>
-      <form>
-        <!-- Full Name -->
 
-        <div class="flex">
+      <form method = "POST" action="{% url 'signup' %}">
 
+          {% csrf_token %}
+            <div class="flex">
 
-          <div class="mb-4 mx-2">
-            <label for="fullName" class="block text-gray-700">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="John Doe"
-              class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
-          </div>
 
           <!-- Username -->
           <div class="mb-4 mx-2">
             <label for="username" class="block text-gray-700">Username</label>
-            <input type="text" id="username" name="username" placeholder="john_doe123"
+            <input type="text" id="username" name="uname" placeholder="john_doe123"
               class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
           </div>
         </div>
@@ -52,6 +47,14 @@
           <input type="password" id="password" name="password" placeholder="********"
             class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
         </div>
+
+        <div class="mb-4 mx-2">
+          <label for="password" class="block text-gray-700">Confirm Password</label>
+          <input type="password" id="cpassword" name="cpassword" placeholder="********"
+            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
+        </div>
+
+
         <!-- Email Address -->
         <div class="mb-4 mx-2">
           <label for="email" class="block text-gray-700">Email Address</label>
@@ -60,29 +63,12 @@
         </div>
 
         <!-- Address with City Dropdown -->
-        <div class="mb-4 mx-2">
-          <label for="address" class="block text-gray-700">Address</label>
-          <input type="text" id="address" name="address" placeholder="Woda Number 6"
-            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required />
-          <!-- City Dropdown -->
-          <select id="city" name="city"
-            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" required>
-            <option value="kathmandu">Kathmandu</option>
-            <option value="pokhara">Pokhara</option>
-            <option value="biratnagar">Biratnagar</option>
-            <option value="bharatpur">Bharatpur</option>
-            <option value="butwal">Butwal</option>
-            <option value="dharan">Dharan</option>
-          </select>
-        </div>
+
 
         <!-- Contact Number -->
-        <div class="mb-4 mx-2">
-          <label for="contactNumber" class="block text-gray-700">Contact Number</label>
-          <input type="tel" id="contactNumber" name="contactNumber" placeholder="9876543210"
-            class="mt-2 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" pattern="[0-9]{10}"
-            required />
-        </div>
+        <a href="/account/login/">
+        <span class="text-black font-italics">Already have an account!Login</span>
+        </a>
 
         <!-- Submit Button -->
         <button type="submit"
