@@ -128,12 +128,12 @@
         document.addEventListener("DOMContentLoaded", function () {
             var selectedLocation;
             var clickableDivs = document.querySelectorAll(".titles");
-            var map = L.map('map').setView([27.709944374495038, 85.31732829466324], 12);
+            var map = L.map('map').setView([27.709944374495038, 85.31732829466324], 17);
             var geocoder = L.Control.Geocoder.nominatim();
             function addMarkerToCity(city) {
                 geocoder.geocode(city, function (results) {
                     var latlng = results[0].center;
-                    map.setView(latlng, 12);
+                    map.setView(latlng, 17);
                     L.marker(latlng).addTo(map).bindPopup(city).openPopup();
                 });
             }
@@ -1264,11 +1264,11 @@
                 }
             }
 
-
-            var intervalId = setInterval(updateMarker, 100);
+            var intervalId = setInterval(updateMarker, 1500);
 
             const closeButton = document.getElementById('map-popup').querySelector('button');
             closeButton.addEventListener('click', closeMapPopup);
+            closeMapPopup();
         });
     </script>
 
