@@ -51,6 +51,12 @@ class ScheduleView(Base):
         return render(request, "schedule.html", self.views)
 
 
+class AboutView(Base):
+
+    def get(self, request):
+        return render(request, "about.html", self.views)
+
+
 def signup(request):
     if request.method == "POST":
         username = request.POST["uname"]

@@ -6,5 +6,6 @@ urlpatterns = [
     path('complain/', ComplainView.as_view(), name='complain'),
     path('schedule/', ScheduleView.as_view(), name='schedule'),
     path('signup/', signup, name='signup'),
+    path('about/', AboutView.as_view(), name='about')
 
 ]
