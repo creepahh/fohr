@@ -35,7 +35,7 @@
 
             <ul class="mt-8 font-sans font-light antialiased">
                 <li class="list-none">
-                    <a href="" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
+                    <a href="{% url 'home' %}" class="block rounded-md px-4 py-2 hover:bg-gray-100"><i
                             class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="list-none">
@@ -54,23 +54,40 @@
             </ul>
 
 
-            <div class="m-3 p-2">
-                {% if user.is_authenticated %}
-                <a href=""><i class="icon-user"><label>{{user.username}}</label></i></a>
-                {% else %}
-                <a href="/account/login/">
-                    <button class=" custom-button rounded-full border border-black bg-transparent px-3 py-2 font-sans
-                            font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
-                            id=" icon" class="fa-solid fa-right-to-bracket"></i></button>
-                </a>
-                {% endif %}
+<div class="m-3 p-2">
+    {% if user.is_authenticated %}
+        <a href="">
+            <i class="icon-user">
+<!--                <label>{{ user.username }}</label>-->
+            </i>
+        </a>
+    {% else %}
+        <a href="/account/login/">
+            <button class="custom-button rounded-full border border-black bg-transparent px-3 py-2
+                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
+        </a>
+        <a href="{% url 'signup' %}">
+            <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
+                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
+                <i class="fa-solid fa-user-plus"></i>
+            </button>
+        </a>
+    {% endif %}
+</div>
 
-                <a href="{% url 'signup' %}">
-                    <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
-                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white"><i
-                            class="fa-solid fa-user-plus"></i></button>
-                </a>
-            </div>
+<div class="flex item-center justify-center">
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">
+            <label>{{ user.username }}</label> <!-- Username placed just above the logout button -->
+            <button style="margin-top: 1cm;" class="custom-button rounded-full border border-black bg-transparent px-3 py-2
+                    font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </button>
+        </a>
+    {% endif %}
+</div>
         </nav>
 
         <div id="schedules" class="m-5 h-[92vh] flex-1 overflow-hidden rounded-lg bg-gray-100">
