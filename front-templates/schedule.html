@@ -54,40 +54,40 @@
             </ul>
 
 
-<div class="m-3 p-2">
-    {% if user.is_authenticated %}
-        <a href="">
-            <i class="icon-user">
-<!--                <label>{{ user.username }}</label>-->
-            </i>
-        </a>
-    {% else %}
-        <a href="/account/login/">
-            <button class="custom-button rounded-full border border-black bg-transparent px-3 py-2
+            <div class="m-3 p-2">
+                {% if user.is_authenticated %}
+                <a href="">
+                    <i class="icon-user">
+                        <!--                <label>{{ user.username }}</label>-->
+                    </i>
+                </a>
+                {% else %}
+                <a href="/account/login/">
+                    <button class="custom-button rounded-full border border-black bg-transparent px-3 py-2
                     font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            </button>
-        </a>
-        <a href="{% url 'signup' %}">
-            <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </button>
+                </a>
+                <a href="{% url 'signup' %}">
+                    <button class="custom-button rounded-full border  border-black bg-transparent px-3 py-2
                     font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
-                <i class="fa-solid fa-user-plus"></i>
-            </button>
-        </a>
-    {% endif %}
-</div>
+                        <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                </a>
+                {% endif %}
+            </div>
 
-<div class="flex item-center justify-center">
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">
-            <label>{{ user.username }}</label> <!-- Username placed just above the logout button -->
-            <button style="margin-top: 1cm;" class="custom-button rounded-full border border-black bg-transparent px-3 py-2
+            <div class="flex item-center justify-center">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">
+                    <label>{{ user.username }}</label> <!-- Username placed just above the logout button -->
+                    <button style="margin-top: 1cm;" class="custom-button rounded-full border border-black bg-transparent px-3 py-2
                     font-sans font-semibold text-black hover:border-transparent hover:bg-black hover:text-white">
-                <i class="fa-solid fa-right-to-bracket"></i>
-            </button>
-        </a>
-    {% endif %}
-</div>
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                </a>
+                {% endif %}
+            </div>
         </nav>
 
         <div id="schedules" class="m-5 h-[92vh] flex-1 overflow-hidden rounded-lg bg-gray-100">
@@ -99,9 +99,9 @@
                         <div id="titlesabcs" class="space-between flex w-full justify-between px-4 py-2">
 
 
-                            <span class="p-2.5 font-sans font-bold">Date</span>
-                            <span class="p-2.5 font-sans font-bold">Pick up time</span>
                             <span class="p-2.5 font-sans font-bold">Location</span>
+                            <span class="p-2.5 font-sans font-bold">Date</span>
+                            <span class="p-2.5 font-sans font-bold">Approx Pick up time</span>
                         </div>
                     </div>
 
@@ -109,9 +109,9 @@
                     <div class="m-5 flex overflow-x-auto rounded-full bg-white text-gray-500">
                         <div onclick="openMapPopup()" data-location="{{schedule.location}}"
                             class="titles space-between flex justify-between w-full px-1 py-1">
+                            <span class="p-2 font-sans">{{schedule.location}}</span>
                             <span class="p-2 font-sans text-gray-600">{{schedule.date}}</span>
                             <span class="p-2 font-sans">{{schedule.time}}</span>
-                            <span class="p-2 font-sans">{{schedule.location}}</span>
                         </div>
                     </div>
                     {% endfor %}
