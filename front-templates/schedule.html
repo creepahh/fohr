@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
 
-    <title>Document</title>
+    <title>Schedule</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -89,9 +89,9 @@
                     </div>
 
                     {% for schedule in schedules %}
-                    <div class="m-5 flex w-full overflow-x-auto rounded-full bg-white text-gray-500">
-                        <div onclick="openMapPopup()" class="titles" data-location="{{schedule.location}}"
-                            class="space-between flex justify-between w-full px-1 py-1">
+                    <div class="m-5 flex overflow-x-auto rounded-full bg-white text-gray-500">
+                        <div onclick="openMapPopup()" data-location="{{schedule.location}}"
+                            class="titles space-between flex justify-between w-full px-1 py-1">
                             <span class="p-2 font-sans text-gray-600">{{schedule.date}}</span>
                             <span class="p-2 font-sans">{{schedule.time}}</span>
                             <span class="p-2 font-sans">{{schedule.location}}</span>
